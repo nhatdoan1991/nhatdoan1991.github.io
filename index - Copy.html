@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Delta Hand Pie Internal Website</title>
+            <link rel="stylesheet" href="CSS/style.css">
+    </head>
+ 
+    <body>
+        <header id="main-header">
+           <div class="container">
+             <h1>Delta Hand Pie Internal Website</h1>
+            
+           </div>
+           
+
+        </header>
+        <nav id="orderQueue">
+                <div class="container">
+                <h1>Order Queue</h1>
+                    <ul>
+                        <button class="button" id="createGroup">Create Group</button>
+                        <select name="GroupBy">
+                            <option value="groupBy">(group by)</option>
+                            <option value="deliverDate">Deliver Date</option>
+                            <option value="zipcode">Address</option>
+                        </select>
+                     </ul>
+                </div>
+            </nav>
+          
+        <section id="orderDisplay">
+                <div class="container">
+                    <table class="content-table">
+                        <thead>
+                            <th>Group</th>
+                            <th>Order</th>
+                            <th>Name</th>
+                            <th>Items</th>
+                            <th>Address</th>
+                            <th>Pop Order</th>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                    <td>(none)</td>
+                                    <td>01</td>
+                                    <td>Nhat Doan</td>
+                                    <td>2 apple pies</td>
+                                    <td>95670</td>
+                                    <td><input type='button' value='Pop'/></td>       
+                            </tr>
+                            <tr>
+                                <td>(none)</td>
+                                <td>02</td>
+                                <td>Long Nguyen</td>
+                                <td>2 apple pies</td>
+                                <td>95670</td>
+                                <td><input type='button' value='Pop'/></td>               
+                             </tr>
+                             <tr>
+                                <td>(none)</td>
+                                <td>03</td>
+                                <td>Hung Truong</td>
+                                <td>2 apple pies</td>
+                                <td>95670</td>
+                                <td><input type='button' value='Pop'/></td>               
+                             </tr>
+                            <tr>
+                                <td>(none)</td>
+                                <td>04</td>
+                                <td>Ezekiel Sung</td>
+                                <td>2 apple pies</td>
+                                <td>95670</td>
+                                <td><input  type='button' value='Pop'/></td>               
+                            </tr>
+                            <tr>
+                                <td>(none)</td>
+                                <td>05</td>
+                                <td>FireBall</td>
+                                <td>2 apple pies</td>
+                                <td>95670</td>
+                                <td><input type='button' value='Pop'/></td>               
+                            </tr>
+                            <tr>
+                                <td>(none)</td>
+                                <td>05</td>
+                                <td>Harry</td>
+                                <td>2 apple pies</td>
+                                <td>95670</td>
+                                <td><input type='button' value='Pop'/></td>               
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <ul>
+                        <button class="button" id="orderList">Order List</button>
+                        <button class="button" id="review">Review Group Order</button>
+                        <button class="button" id="pushOrder">Push Order</button>
+                    
+                    </ul>  
+                </div>
+            </section>
+        
+    </body>
+</html>

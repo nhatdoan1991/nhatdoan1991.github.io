@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Delta Hand Pie Internal Website</title>
+            <link rel="stylesheet" href="CSS/style.css">
+    </head>
+ 
+    <body>
+        <header id="main-header">
+           <div class="container">
+             <h1>Delta Hand Pie Internal Website</h1>
+            
+           </div>
+           
+
+        </header>
+        <nav id="orderQueue">
+                <div class="container">
+                <h1>Order Queue</h1>
+                    <ul>
+                     <button class="button">Create Group</button>
+
+                        <select name="GroupBy" onchange="location = this.value;">
+                            <option value="groupBy">(group by)</option>
+                            <option value="sortByDeliveryDate.html" onclick="javascript:location.href='sortByLocation.html'">Deliver Date</option>
+                            <option value="zipcode">Address</option>
+                        </select>
+                     </ul>
+                </div>
+            </nav>
+          
+        <section id="orderDisplay">
+                <div class="container">
+                    <table class="content-table">
+                        <thead>
+                            <th>Group</th>
+                            <th>Order</th>
+                            <th>Pop Order</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">95670</option>
+                                    <option value="none">(none)</option>
+                                </select></td>
+                                <td>00842</td>
+                                <td><input type='button' value='Pop'/></td>               
+                             </tr>
+                             <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">95670</option>
+                                    <option value="none">(none)</option>
+                                </select></td>
+                                <td>00843</td>
+                                <td><input type='button' value='Pop'/></td>               
+                             </tr>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">95670</option>
+                                    <option value="none">(none)</option>
+                                </select></td>
+                                <td>00844</td>
+                                <td><input  type='button' value='Pop'/></td>               
+                            </tr>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">95848</option>
+                                    <option value="none">(none)</option>
+                                </select></td>
+                                <td>00845</td>
+                                <td><input type='button' value='Pop'/></td>               
+                            </tr>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">95848</option>
+                                    <option value="none">(none)</option>
+                                </select></td>
+                                <td>00846</td>
+                                <td><input type='button' value='Pop'/></td>               
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <ul>
+                        <button class="button" id="orderList">Order List</button>
+                       <button id="modal-btn" class="button">Review Group Order</button>
+
+                        <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                         <div class="modal-header">
+                        <span class="close">&times;</span>
+                         <h2>Review Group Order</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <table class="content-table">
+                                    <thead>
+                                        <th>Group</th>
+                                        <th>Order</th>
+                                        <th>Name</th>
+                                        <th>Items</th>
+                                        <th>Address</th>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td>95670</td>
+                                            <td>00842</td>
+                                            <td>Long Nguyen</td>
+                                            <td>2 apple pies</td>
+                                            <td>95670</td>
+                                                           
+                                         </tr>
+                                         <tr>
+                                            <td>95670</td>
+                                            <td>03</td>
+                                            <td>Hung Truong</td>
+                                            <td>2 apple pies</td>
+                                            <td>95670</td>
+                                                     
+                                         </tr>
+                                        <tr>
+                                            <td>95670</td>
+                                            <td>04</td>
+                                            <td>Ezekiel Sung</td>
+                                            <td>2 apple pies</td>
+                                            <td>95670</td>
+                      
+                                        </tr>
+                                        <tr>
+                                            <td>95848</td>
+                                            <td>05</td>
+                                            <td>FireBall</td>
+                                            <td>2 apple pies</td>
+                                            <td>95848</td>
+                                         </tr>
+                                        <tr>
+                                            <td>95848</td>
+                                            <td>05</td>
+                                            <td>Harry</td>
+                                            <td>2 apple pies</td>
+                                            <td>95848</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                        <form action="reviewOrder.html">
+                            <input type="submit" value="OK" />
+                        </form>
+                        
+                         </div>
+                        </div>
+                        </div>
+                        <button class="button" id="pushOrder">Push Order</button>
+                        
+                    </ul>  
+                </div>
+            </section>
+        <script src ="main.js">
+        </script>
+    </body>
+</html>

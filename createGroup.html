@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Delta Hand Pie Internal Website</title>
+            <link rel="stylesheet" href="CSS/style.css">
+    </head>
+ 
+    <body>
+        <header id="main-header">
+           <div class="container">
+             <h1>Delta Hand Pie Internal Website</h1>
+            
+           </div>
+           
+
+        </header>
+        <nav id="orderQueue">
+                <div class="container">
+                <h1>Order Queue</h1>
+                    <ul>
+                     <button id="modal-btn" class="button">Create Group</button>
+
+                        <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                         <div class="modal-header">
+                        <span class="close">&times;</span>
+                         <h2>Create New Group</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <fieldset>
+                                  <legend>New Group</legend>
+                                  <p>
+                                    <label>Group Name:</label>
+                                    <input type = "text"
+                                           id = "groupName"
+                                           value = "95670" />
+                                </fieldset>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button> OK  </button> 
+                        <button> Cancel </button>
+                         </div>
+                        </div>
+                        </div>
+                        <select name="GroupBy">
+                            <option value="groupBy">(group by)</option>
+                            <option value="deliverDate">Deliver Date</option>
+                            <option value="zipcode">Address</option>
+                        </select>
+                     </ul>
+                </div>
+            </nav>
+          
+        <section id="orderDisplay">
+                <div class="container">
+                    <table class="content-table">
+                        <thead>
+                            <th>Group</th>
+                            <th>Order</th>
+                            <th>Pop Order</th>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                    <td><select name="GroupBy">
+                                        <option value="none">(none)</option>
+                                        <option value="none">95670</option>
+                                    </select></td>
+                                    <td><div class ="dropdown">
+                                        <span><u>00841</u></span>
+                                        <div class="dropdown-content">
+                                          <p><b>Order #:</b>00841</p>
+                                          <p><b>Name:</b> Duane Wilson</p>
+                                          <p><b>Address:</b> 3326 Long Road Name Court </p>
+                                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             West Sacramento, CA 95619</p>
+                                          <p><b>Note:</b> Gate code is 1234</p>
+                                          <p><b>Item #:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                      QTY</b></p>
+                                          <p>Fairytale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 </p>
+                              
+                                          <p>Hemly Pink Lady&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</p>
+                                        </div>
+                                      </div></td>
+                                    <td> <form action="afterPop.html">
+                                        <input type="submit" value="Pop" />
+                                    </form></td>       
+                            </tr>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">(none)</option>
+                                    <option value="none">95670</option>
+                                </select></td>
+                                <td>00842</td>
+                                <td><input type='button' value='Pop'/></td>               
+                             </tr>
+                             <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">(none)</option>
+                                    <option value="none">95670</option>
+                                </select></td>
+                                <td>00843</td>
+                                <td><input type='button' value='Pop'/></td>               
+                             </tr>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">(none)</option>
+                                    <option value="none">95670</option>
+                                </select></td>
+                                <td>00844</td>
+                                <td><input  type='button' value='Pop'/></td>               
+                            </tr>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">(none)</option>
+                                    <option value="none">95670</option>
+                                </select></td>
+                                <td>00845</td>
+                                <td><input type='button' value='Pop'/></td>               
+                            </tr>
+                            <tr>
+                                <td><select name="GroupBy">
+                                    <option value="none">(none)</option>
+                                    <option value="none">95670</option>
+                                </select></td>
+                                <td>00846</td>
+                                <td><input type='button' value='Pop'/></td>               
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <ul>
+                        <button class="button" id="orderList">Order List</button>
+                        <button class="button" id="review">Review Group Order</button>
+                        <button class="button" id="pushOrder">Push Order</button>
+                    
+                    </ul>  
+                </div>
+            </section>
+        <script src ="main.js">
+        </script>
+    </body>
+</html>
