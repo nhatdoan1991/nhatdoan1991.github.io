@@ -34,6 +34,9 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
 }
+
+//drag and drop try 2
+
 // Events
 modalBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);

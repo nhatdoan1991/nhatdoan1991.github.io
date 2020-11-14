@@ -144,4 +144,6 @@ nav h1{
       opacity: 1;
     }
   }
-  
+.tableBottom{
+  padding-bottom: 10px;
+}
