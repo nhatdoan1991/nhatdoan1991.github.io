@@ -20,7 +20,7 @@
                     <ul>
                      <button id="modal-btn" class="button">Create Group</button>
 
-                        <div id="my-modal" class="modal">
+                        <div dra id="my-modal" class="modal">
                         <div class="modal-content">
                          <div class="modal-header">
                         <span class="close">&times;</span>
@@ -39,16 +39,24 @@
                               </form>
                         </div>
                         <div class="modal-footer">
-                        <button> OK  </button> 
-                        <button> Cancel </button>
+                        <form action="createGroup.html">
+                            <input type="submit" value="OK" />
+                            <form action="index.html">
+                                <input type="submit" value="Cancel" />
+                            </form>
+                        </form>
+                        
                          </div>
                         </div>
                         </div>
-                        <select name="GroupBy">
-                            <option value="groupBy">(group by)</option>
-                            <option value="deliverDate">Deliver Date</option>
-                            <option value="zipcode">Address</option>
-                        </select>
+                        <button id="dragbleButton"> Dragable</button>
+                       
+                            <select name="GroupBy">
+                                <option value="groupBy">(group by)</option>
+                                <option value="deliverDate">Deliver Date</option>
+                                <option value="zipcode">Address</option>
+                            </select>
+                       
                      </ul>
                 </div>
             </nav>
@@ -57,17 +65,39 @@
                 <div class="container">
                     <table class="content-table">
                         <thead>
-                            <th>Group</th>
-                            <th>Order</th>
+                            <h2>95670</h2>
+                        </thead>
+                        <tbody class = "tableBottom">
+                            <thead >
+                                <th>Order Number</th>
+                                <th>Name</th>
+                                <th>Item</th>
+                                <th>Address</th>
+                                <th>Pop Order</th>
+                            </thead>
+                            <tbody >
+                                <tr id = "drop1" ondragstart='start()'  ondragover='dragover()'>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr> 
+                             </tbody>   
+                        </tbody>
+                    </table>
+                    <table class="content-table">
+                        <h2>All Order</h2>
+                        <thead>
+                            <th>Order Number</th>
+                            <th>Name</th>
+                            <th>Item</th>
+                            <th>Address</th>
                             <th>Pop Order</th>
                         </thead>
                         <tbody>
-                            
-                            <tr>
-                                    <td><select name="GroupBy">
-                                        <option value="none">(none)</option>
-                                        <option value="none">95670</option>
-                                    </select></td>
+                            <tr id="dragable" draggable="false" ondragstart='start()'  ondragover='dragover()'>
+                                <div >
                                     <td><div class ="dropdown">
                                         <span><u>00841</u></span>
                                         <div class="dropdown-content">
@@ -93,48 +123,50 @@
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</p>
                                         </div>
                                       </div></td>
-                                    <td> <form action="afterPop.html">
-                                        <input type="submit" value="Pop" />
-                                    </form></td>       
+                                </div>
+                                  <td>Nhat Doan</td></td>
+                                  <td>Fairytale x2</td></td>
+                                  <td>95670</td></td>
+                                  
+                                <td><input type='button' value='Pop'/></td>       
                             </tr>
                             <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">(none)</option>
-                                    <option value="none">95670</option>
-                                </select></td>
+                            
                                 <td>00842</td>
-                                <td><input type='button' value='Pop'/></td>               
+                                <td>Long Nguyen</td></td>
+                                <td>Fairytale x2</td></td>
+                                <td>95848</td></td>
+                                <td> <form action="afterPop.html">
+                                    <input type="submit" value="Pop" />
+                                </form></td>               
                              </tr>
                              <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">(none)</option>
-                                    <option value="none">95670</option>
-                                </select></td>
                                 <td>00843</td>
+                                <td>Ezekiel Sung</td></td>
+                                <td>Fairytale x2</td></td>
+                                <td>95670</td></td>
                                 <td><input type='button' value='Pop'/></td>               
                              </tr>
                             <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">(none)</option>
-                                    <option value="none">95670</option>
-                                </select></td>
                                 <td>00844</td>
+                                <td>Hung Truong</td></td>
+                                <td>Fairytale x2</td></td>
+                                <td>95670</td></td>
                                 <td><input  type='button' value='Pop'/></td>               
                             </tr>
                             <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">(none)</option>
-                                    <option value="none">95670</option>
-                                </select></td>
                                 <td>00845</td>
+                                <td>Harry Luu</td></td>
+                                <td>Fairytale x2</td></td>
+                                <td>95848</td></td>
                                 <td><input type='button' value='Pop'/></td>               
                             </tr>
                             <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">(none)</option>
-                                    <option value="none">95670</option>
-                                </select></td>
+
                                 <td>00846</td>
+                                <td>FireBall</td></td>
+                                <td>Fairytale x2</td></td>
+                                <td>95670</td></td>
                                 <td><input type='button' value='Pop'/></td>               
                             </tr>
                         </tbody>
@@ -143,11 +175,27 @@
                     <ul>
                         <button class="button" id="orderList">Order List</button>
                         <button class="button" id="review">Review Group Order</button>
-                        <button class="button" id="pushOrder">Push Order</button>
-                    
                     </ul>  
                 </div>
             </section>
+            <script>
+                var row;
+
+function start(){  
+  row = event.target; 
+}
+function dragover(){
+  var e = event;
+  e.preventDefault(); 
+  
+  let children= Array.from(e.target.parentNode.parentNode.children);
+  
+  if(children.indexOf(e.target.parentNode)>children.indexOf(row))
+    e.target.parentNode.after(row);
+  else
+    e.target.parentNode.before(row);
+}
+            </script>
         <script src ="main.js">
         </script>
     </body>

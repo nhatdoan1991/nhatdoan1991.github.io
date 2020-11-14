@@ -18,13 +18,48 @@
                 <div class="container">
                 <h1>Order Queue</h1>
                     <ul>
-                     <button class="button">Create Group</button>
+                     <button id="modal-btn" class="button">Create Group</button>
 
-                        <select name="GroupBy" onchange="location = this.value;">
-                            <option value="groupBy">(group by)</option>
-                            <option value="sortByDeliveryDate.html" onclick="javascript:location.href='sortByLocation.html'">Deliver Date</option>
-                            <option value="zipcode">Address</option>
-                        </select>
+                        <div dra id="my-modal" class="modal">
+                        <div class="modal-content">
+                         <div class="modal-header">
+                        <span class="close">&times;</span>
+                         <h2>Create New Group</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <fieldset>
+                                  <legend>New Group</legend>
+                                  <p>
+                                    <label>Group Name:</label>
+                                    <input type = "text"
+                                           id = "groupName"
+                                           value = "95670" />
+                                </fieldset>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                        <form action="createGroup.html">
+                            <input type="submit" value="OK" />
+                            <form action="index.html">
+                                <input type="submit" value="Cancel" />
+                            </form>
+                        </form>
+                        
+                         </div>
+                        </div>
+                        </div>
+                        <button id="dragbleButton"> Dragable</button>
+                        <script>
+                           
+                        </script>
+                       
+                            <select name="GroupBy">
+                                <option value="groupBy">(group by)</option>
+                                <option value="deliverDate">Deliver Date</option>
+                                <option value="zipcode">Address</option>
+                            </select>
+                       
                      </ul>
                 </div>
             </nav>
@@ -33,77 +68,19 @@
                 <div class="container">
                     <table class="content-table">
                         <thead>
-                            <th>Group</th>
-                            <th>Order</th>
+                            <th>Order Number</th>
+                            <th>Name</th>
+                            <th>Item</th>
+                            <th>Address</th>
                             <th>Pop Order</th>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95670</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00842</td>
-                                <td><input type='button' value='Pop'/></td>               
-                             </tr>
-                             <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95670</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00843</td>
-                                <td><input type='button' value='Pop'/></td>               
-                             </tr>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95670</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00844</td>
-                                <td><input  type='button' value='Pop'/></td>               
-                            </tr>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95848</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00845</td>
-                                <td><input type='button' value='Pop'/></td>               
-                            </tr>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95848</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00846</td>
-                                <td><input type='button' value='Pop'/></td>               
-                            </tr>
+                        <tbody> 
                         </tbody>
                     </table>
                     
                     <ul>
                         <button class="button" id="orderList">Order List</button>
-                       <button class="button">Review Group Order</button>
-
-                        <button id="modal-btn" class="button">Push Order</button>
-
-                        <div id="my-modal" class="modal">
-                        <div class="modal-content">
-                         <div class="modal-header">
-                        <span class="close">&times;</span>
-                         <h2>Push Order</h2>
-                        </div>
-                        <div class="modal-body">
-                            <p> Your Group Orders were just pushed to the kitchen</p>
-                        </div>
-                        <div class="modal-footer">
-                        <form action="">
-                            <input type="submit" value="OK" />
-                        </form>
-                        
-                         </div>
-                        </div>
-                        </div>
+                        <button class="button" id="review">Review Group Order</button>
                     </ul>  
                 </div>
             </section>

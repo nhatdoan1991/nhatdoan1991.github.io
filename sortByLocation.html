@@ -18,13 +18,49 @@
                 <div class="container">
                 <h1>Order Queue</h1>
                     <ul>
-                     <button class="button">Create Group</button>
+                     <button id="modal-btn" class="button">Create Group</button>
 
-                        <select name="GroupBy" onchange="location = this.value;">
-                            <option value="groupBy">(group by)</option>
-                            <option value="sortByDeliveryDate.html" onclick="javascript:location.href='sortByLocation.html'">Deliver Date</option>
-                            <option value="zipcode">Address</option>
-                        </select>
+                        <div dra id="my-modal" class="modal">
+                        <div class="modal-content">
+                         <div class="modal-header">
+                        <span class="close">&times;</span>
+                         <h2>Create New Group</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <fieldset>
+                                  <legend>New Group</legend>
+                                  <p>
+                                    <label>Group Name:</label>
+                                    <input type = "text"
+                                           id = "groupName"
+                                           value = "95670" />
+                                </fieldset>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                        <form action="createGroup.html">
+                            <input type="submit" value="OK" />
+                            <form action="index.html">
+                                <input type="submit" value="Cancel" />
+                            </form>
+                        </form>
+                        
+                         </div>
+                        </div>
+                        </div>
+                        <button id="dragbleButton"> Dragable</button>
+                        <script>
+                           
+                        </script>
+                       
+                            <select name="GroupBy" onchange="location = this.value;">
+                                <option value="sortByLocation.html">Address</option>
+                                <option value="groupBy">(group by)</option>
+                                <option value="sortByDeliveryDate.html">Deliver Date</option>
+                              
+                            </select>
+                       
                      </ul>
                 </div>
             </nav>
@@ -33,128 +69,115 @@
                 <div class="container">
                     <table class="content-table">
                         <thead>
-                            <th>Group</th>
-                            <th>Order</th>
+                            <h2>95670</h2>
+                        </thead>
+                        <tbody class = "tableBottom">
+                            <thead>
+                                <th>Order Number</th>
+                                <th>Name</th>
+                                <th>Item</th>
+                                <th>Address</th>
+                                <th>Pop Order</th>
+                            </thead>
+                            <tbody>
+                                <tr id="dragable" draggable="false">
+                                        <div class =  >
+                                            <td><div class ="dropdown">
+                                                <span><u>00841</u></span>
+                                                <div class="dropdown-content">
+                                                  <p><b>Order #:</b>00841</p>
+                                                  <p><b>Name:</b> Duane Wilson</p>
+                                                  <p><b>Address:</b> 3326 Long Road Name Court </p>
+                                                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                     West Sacramento, CA 95619</p>
+                                                  <p><b>Note:</b> Gate code is 1234</p>
+                                                  <p><b>Item #:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              QTY</b></p>
+                                                  <p>Fairytale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 </p>
+                                      
+                                                  <p>Hemly Pink Lady&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</p>
+                                                </div>
+                                              </div></td>
+                                        </div>
+                                          <td>Nhat Doan</td></td>
+                                          <td>Fairytale x2</td></td>
+                                          <td>95670</td></td>
+                                          
+                                        <td><input type='button' value='Pop'/></td>       
+                                </tr>
+                                <tr>
+    
+                                    <td>00846</td>
+                                    <td>FireBall</td></td>
+                                    <td>Fairytale x2</td></td>
+                                    <td>95670</td></td>
+                                    <td><input type='button' value='Pop'/></td>               
+                                </tr>
+                                <tr>
+                                    <td>00843</td>
+                                    <td>Ezekiel Sung</td></td>
+                                    <td>Fairytale x2</td></td>
+                                    <td>95670</td></td>
+                                    <td><input type='button' value='Pop'/></td>               
+                                 </tr>
+                                <tr>
+                                    <td>00844</td>
+                                    <td>Hung Truong</td></td>
+                                    <td>Fairytale x2</td></td>
+                                    <td>95670</td></td>
+                                    <td><input  type='button' value='Pop'/></td>               
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table class="content-table">
+                        <thead>
+                            <h2>95848</h2>
+                        </thead>
+                        <tbody class = "tableBottom">
+                            <thead>
+                                <th>Order Number</th>
+                                <th>Name</th>
+                                <th>Item</th>
+                                <th>Address</th>
+                                <th>Pop Order</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>00845</td>
+                                    <td>Harry Luu</td></td>
+                                    <td>Fairytale x2</td></td>
+                                    <td>95848</td></td>
+                                    <td><input type='button' value='Pop'/></td>               
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table class="content-table">
+                        <h2>All Order</h2>
+                        <thead>
+                            <th>Order Number</th>
+                            <th>Name</th>
+                            <th>Item</th>
+                            <th>Address</th>
                             <th>Pop Order</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95670</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00842</td>
-                                <td><input type='button' value='Pop'/></td>               
-                             </tr>
-                             <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95670</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00843</td>
-                                <td><input type='button' value='Pop'/></td>               
-                             </tr>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95670</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00844</td>
-                                <td><input  type='button' value='Pop'/></td>               
-                            </tr>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95848</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00845</td>
-                                <td><input type='button' value='Pop'/></td>               
-                            </tr>
-                            <tr>
-                                <td><select name="GroupBy">
-                                    <option value="none">95848</option>
-                                    <option value="none">(none)</option>
-                                </select></td>
-                                <td>00846</td>
-                                <td><input type='button' value='Pop'/></td>               
-                            </tr>
+                            
+                            
                         </tbody>
                     </table>
                     
                     <ul>
                         <button class="button" id="orderList">Order List</button>
-                       <button id="modal-btn" class="button">Review Group Order</button>
-
-                        <div id="my-modal" class="modal">
-                        <div class="modal-content">
-                         <div class="modal-header">
-                        <span class="close">&times;</span>
-                         <h2>Review Group Order</h2>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <table class="content-table">
-                                    <thead>
-                                        <th>Group</th>
-                                        <th>Order</th>
-                                        <th>Name</th>
-                                        <th>Items</th>
-                                        <th>Address</th>
-                                    </thead>
-                                    <tbody>
-                                        
-                                        <tr>
-                                            <td>95670</td>
-                                            <td>00842</td>
-                                            <td>Long Nguyen</td>
-                                            <td>2 apple pies</td>
-                                            <td>95670</td>
-                                                           
-                                         </tr>
-                                         <tr>
-                                            <td>95670</td>
-                                            <td>03</td>
-                                            <td>Hung Truong</td>
-                                            <td>2 apple pies</td>
-                                            <td>95670</td>
-                                                     
-                                         </tr>
-                                        <tr>
-                                            <td>95670</td>
-                                            <td>04</td>
-                                            <td>Ezekiel Sung</td>
-                                            <td>2 apple pies</td>
-                                            <td>95670</td>
-                      
-                                        </tr>
-                                        <tr>
-                                            <td>95848</td>
-                                            <td>05</td>
-                                            <td>FireBall</td>
-                                            <td>2 apple pies</td>
-                                            <td>95848</td>
-                                         </tr>
-                                        <tr>
-                                            <td>95848</td>
-                                            <td>05</td>
-                                            <td>Harry</td>
-                                            <td>2 apple pies</td>
-                                            <td>95848</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                              </form>
-                        </div>
-                        <div class="modal-footer">
-                        <form action="reviewOrder.html">
-                            <input type="submit" value="OK" />
-                        </form>
-                        
-                         </div>
-                        </div>
-                        </div>
-                        <button class="button" id="pushOrder">Push Order</button>
-                        
+                        <button class="button" id="review">Review Group Order</button>
                     </ul>  
                 </div>
             </section>
