@@ -147,3 +147,9 @@ nav h1{
 .tableBottom{
   padding-bottom: 10px;
 }
+h4{
+  padding-left: 5%;
+}
+.checkmark{
+  color: yellow;
+}
