@@ -1,179 +1,349 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <title>Delta Hand Pie Internal Website</title>
-            <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="queue.css">
+        <link rel="stylesheet" href="modal.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="dropdown.css">
+        <title >Delta Hand Pie Internal-Queue </title>
     </head>
- 
-    <body>
-        <header id="main-header">
-           <div class="container">
-             <h1>Delta Hand Pie Internal Website</h1>
-            
-           </div>
-           
+<body>
+    <header>
 
-        </header>
-        <nav id="orderQueue">
-                <div class="container">
-                <h1>Order Queue</h1>
-                <h2>In Queue</h2>
-                    <ul>
-                     <button id="modal-btn" class="button">Create Group</button>
-
-                        <div dra id="my-modal" class="modal">
-                        <div class="modal-content">
-                         <div class="modal-header">
-                        <span class="close">&times;</span>
-                         <h2>Create New Group</h2>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <fieldset>
-                                  <legend>New Group</legend>
-                                  <p>
-                                    <label>Group Name:</label>
-                                    <input type = "text"
-                                           id = "groupName"
-                                           value = "95670" />
-                                </fieldset>
-                              </form>
-                        </div>
-                        <div class="modal-footer">
-                        <form action="createGroup.html">
-                            <input type="submit" value="OK" />
-                            <form action="index.html">
-                                <input type="submit" value="Cancel" />
-                            </form>
-                        </form>
-                        
-                         </div>
-                        </div>
-                        </div>
-                        <button id="dragbleButton"> Dragable</button>
-                        <script>
-                           
-                        </script>
-                       
-                            <select name="GroupBy" onchange="location = this.value;">
-                                <option value="sortByLocation.html">Address</option>
-                                <option value="groupBy">(group by)</option>
-                                <option value="sortByDeliveryDate.html">Deliver Date</option>
-                              
-                            </select>
-                       
-                     </ul>
+    </header>
+    <div class="container content">
+        <h2 class ="content-heading"></i>Order Queue</h2>
+        <div class = "content-label">
+            <h2 class="queue-heading">
+                <i class="fa fa-object-group" aria-hidden="true"></i> In Queue</h2>
+                <div class="newGroup">
+                    <button type="button" class = "button button-add">
+                        <i class="fa fa-plus"></i>
+                        New Group
+                    </button>
                 </div>
-            </nav>
-          
-        <section id="orderDisplay">
-                <div class="container">
-                    <table class="content-table">
-                        <thead>
-                            <h4>95670</h4>
-                        </thead>
-                        <tbody class = "tableBottom">
-                            <thead>
-                                <th>Order Number</th>
-                                <th>Name</th>
-                                <th>Item</th>
-                                <th>Address</th>
-                                <th>Pop Order</th>
-                            </thead>
-                            <tbody>
-                                <tr id="dragable" draggable="false">
-                                        <div class =  >
-                                            <td><div class ="dropdown">
-                                                <span><u>00841</u></span>
-                                                <div class="dropdown-content">
-                                                  <p><b>Order #:</b>00841</p>
-                                                  <p><b>Name:</b> Duane Wilson</p>
-                                                  <p><b>Address:</b> 3326 Long Road Name Court </p>
-                                                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                     West Sacramento, CA 95619</p>
-                                                  <p><b>Note:</b> Gate code is 1234</p>
-                                                  <p><b>Item #:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              QTY</b></p>
-                                                  <p>Fairytale&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 </p>
-                                      
-                                                  <p>Hemly Pink Lady&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</p>
-                                                </div>
-                                              </div></td>
-                                        </div>
-                                          <td>Nhat Doan</td></td>
-                                          <td>Fairytale x2</td></td>
-                                          <td>95670</td></td>
-                                          
-                                        <td><input type='button' value='Pop'/></td>       
-                                </tr>
-                                <tr>
-    
-                                    <td>00846</td>
-                                    <td>FireBall</td></td>
-                                    <td>Fairytale x2</td></td>
-                                    <td>95670</td></td>
-                                    <td><input type='button' value='Pop'/></td>               
-                                </tr>
-                                <tr>
-                                    <td>00843</td>
-                                    <td>Ezekiel Sung</td></td>
-                                    <td>Fairytale x2</td></td>
-                                    <td>95670</td></td>
-                                    <td><input type='button' value='Pop'/></td>               
-                                 </tr>
-                                <tr>
-                                    <td>00844</td>
-                                    <td>Hung Truong</td></td>
-                                    <td>Fairytale x2</td></td>
-                                    <td>95670</td></td>
-                                    <td><input  type='button' value='Pop'/></td>               
-                                </tr>
-                        </tbody>
-                    </table>
-                    <table class="content-table">
-                        <thead>
-                            <h4>95848</h4>
-                        </thead>
-                        <tbody class = "tableBottom">
-                            <thead>
-                                <th>Order Number</th>
-                                <th>Name</th>
-                                <th>Item</th>
-                                <th>Address</th>
-                                <th>Pop Order</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00845</td>
-                                    <td>Harry Luu</td></td>
-                                    <td>Fairytale x2</td></td>
-                                    <td>95848</td></td>
-                                    <td><input type='button' value='Pop'/></td>               
-                                </tr>
-                        </tbody>
-                    </table>
-                    <table class="content-table">
-                        <h4>All Order</h4>
-                        <center><p>There is no orders in this group</p></center> 
-                    </table>
+                <button id="dragble-button" type="button" class = "button button-hold">
+                    <i id="unlockIcon" class="fa fa-unlock-alt" aria-hidden="true"></i>
+                    Draggable
+                </button>
+                <div class="search-box">
+                    <input type = "text" placeholder="Search...">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div class="dropdown"> 
+                     <button type="button" class = "button button-drop" onclick="dropDown()">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>
+                    Group By
+                     </button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="sortByDeliveryDate.html">Delivery Date</a>
+                        <a href="sortByLocation.html">Zip Code</a>
+                    </div> 
+                </div>
+        </div>
+        <div class= "queue-catagories">
+            <h3 class = "queue-group-heading">
+                <i class="fa fa-table" aria-hidden="true"></i> 95670</h3>
+                <table class = "table-content">
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Name</th>
+                        <th>Item</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                        <td>00841</td>
+                        <td>Duane Wilson</td>
+                        <td>
+                            <p>Fairytale x2</p>
+                            <p>Hemly Pink Lady x2</p>
+                        </td>
+                        <td>95670</td>
+                        <td>
+                            <button class="button button-pop" onclick="pop(this)">
+                               <i class="fa fa-share" aria-hidden="true"></i></i>Pop
+                            </button>
+                        </td>
+                    </tr>
                     
-                    <ul>
-                        <button class="button" id="orderList">Order List</button>
-                        <button class="button" id="review">Review Group Order</button>
-                    </ul>  
-                </div>
-            </section>
-            <div class="container"><h2>In Delivery</h2> <center><p>There is no orders in delivery</p></center></div>
-        <script src ="main.js">
-        </script>
-    </body>
+                    <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"> 
+                        <td>00845</td>
+                        <td>Ezekiel Sung</td>
+                        <td>
+                            <p>Japanese Curry & Vegetables x4</p></td>
+                        <td>95670</td>
+                        <td>
+                            <button class="button button-pop"onclick="pop(this)">
+                                <i class="fa fa-share" aria-hidden="true"></i></i>Pop
+                            </button>
+                        </td>
+                    </tr>
+                  
+                </table>
+            <h3 class = "queue-group-heading">
+                <i class="fa fa-table" aria-hidden="true"></i> 95811</h3>
+            <table class = "table-content">
+                <tr>
+                    <th>Order Number</th>
+                    <th>Name</th>
+                    <th>Item</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                    <td>00842</td>
+                    <td>Francis McKinney</td>
+                    <td>
+                        <p>Japanese Curry & Vegetables x2</p>
+                        <p>Peach& Prociutto x2</p>
+                    </td>
+                    <td>95811</td>
+                    <td>
+                        <button class="button button-pop"onclick="pop(this)">
+                           <i class="fa fa-share" aria-hidden="true"></i></i>Pop
+                        </button>
+                    </td>
+                </tr>
+              
+                  
+            </table>
+            <h3 class = "queue-group-heading">
+                <i class="fa fa-table" aria-hidden="true"></i> 95825</h3>
+            <table class = "table-content">
+                <tr>
+                    <th>Order Number</th>
+                    <th>Name</th>
+                    <th>Item</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                    <td>00843</td>
+                    <td>Kris Helmets</td>
+                    <td>
+                        <p>Hemly Fuji Apple x2</p>
+                        <p>Japanese Curry & Vegetable x2</p>
+                    </td>
+                    <td>95825</td>
+                    <td>
+                        <button class="button button-pop"onclick="pop(this)">
+                            <i class="fa fa-share" aria-hidden="true"></i></i>Pop
+                        </button>
+                    </td>
+                </tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                    <td>00844</td>
+                    <td>Omamouwa Shinderou</td>
+                    <td>
+                        <p>Hemly Fuji Apple x2</p>
+                        <p>Japanese Curry & Vegetable x2</p>
+                    </td>
+                    <td>95825</td>
+                    <td>
+                        <button class="button button-pop"onclick="pop(this)">
+                            <i class="fa fa-share" aria-hidden="true"></i></i>Pop
+                        </button>
+                    </td>
+                </tr>
+            </table>    
+            <h3 class = "queue-group-heading">
+                <i class="fa fa-table" aria-hidden="true"></i> All Order</h3>
+            <table id="allOrderTable" class = "table-content">
+              <center><p>There is no orders in All Order</p></center>
+            </table>
+        </div>
+          
+        <button  id="modal-btn" type="button" class = "button button-normal">
+            <i class="fa fa-american-sign-language-interpreting" aria-hidden="true"></i>
+            Review Order
+        </button>
+        <div dra id="my-modal" class="modal">
+            <div class="modal-content">
+             <div class="modal-header">
+            <span class="close">&times;</span>
+             <h2>Review Order</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <fieldset>
+                      <legend>All Group Order</legend>
+                      <h3 class = "queue-group-heading">
+                        <i class="fa fa-table" aria-hidden="true"></i> 95670</h3>
+                        <table class = "table-content">
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Name</th>
+                                <th>Item</th>
+                                <th>Address</th>
+    
+                            </tr>
+                            <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                                <td>00841</td>
+                                <td>Duane Wilson</td>
+                                <td>
+                                    <p>Fairytale x2</p>
+                                    <p>Hemly Pink Lady x2</p>
+                                </td>
+                                <td>95670</td>
+                             
+                            </tr>
+                            
+                            <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"> 
+                                <td>00845</td>
+                                <td>Ezekiel Sung</td>
+                                <td>
+                                    <p>Japanese Curry & Vegetables x4</p></td>
+                                <td>95670</td>
+                              
+                            </tr>
+                          
+                        </table>
+                    <h3 class = "queue-group-heading">
+                        <i class="fa fa-table" aria-hidden="true"></i> 95811</h3>
+                    <table class = "table-content">
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Name</th>
+                            <th>Item</th>
+                            <th>Address</th>
+                           
+                        </tr>
+                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                            <td>00842</td>
+                            <td>Francis McKinney</td>
+                            <td>
+                                <p>Japanese Curry & Vegetables x2</p>
+                                <p>Peach& Prociutto x2</p>
+                            </td>
+                            <td>95811</td>
+                          
+                        </tr>
+                      
+                          
+                    </table>
+                    <h3 class = "queue-group-heading">
+                        <i class="fa fa-table" aria-hidden="true"></i> 95825</h3>
+                    <table class = "table-content">
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Name</th>
+                            <th>Item</th>
+                            <th>Address</th>
+                            
+                        </tr>
+                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                            <td>00843</td>
+                            <td>Kris Helmets</td>
+                            <td>
+                                <p>Hemly Fuji Apple x2</p>
+                                <p>Japanese Curry & Vegetable x2</p>
+                            </td>
+                            <td>95825</td>
+                            
+                        </tr>
+                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                            <td>00844</td>
+                            <td>Omamouwa Shinderou</td>
+                            <td>
+                                <p>Hemly Fuji Apple x2</p>
+                                <p>Japanese Curry & Vegetable x2</p>
+                            </td>
+                            <td>95825</td>
+                           
+                        </tr>
+                    </table> 
+                    </fieldset>
+                  </form>
+            </div>
+            <div class="modal-footer">
+            <form action="reviewOrder.html">
+                <input class="button button-modal" type="submit" value="Push Order" />
+                <form action="sortByLocation.html">
+                    <input class="button button-modal" type="submit" value="Cancel" />
+                </form>
+            </form>
+            
+             </div>
+            </div>
+        </div>           
+        <div class="queue-catagories">
+            <h2 class="queue-heading">
+                <i class="fa fa-object-group" aria-hidden="true"></i> In Delivery</h2>
+        </div>
+        <h3 class = "queue-group-heading">
+            <i class="fa fa-table" aria-hidden="true"></i> Fri 11/20 </h3>
+        <table class = "table-content">
+            <tr>
+                <th>Order Number</th>
+                <th>Name</th>
+                <th>Item</th>
+                <th>Address</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>00841</td>
+                <td>Duane Wilson</td>
+                <td>
+                    <p>Fairytale x2</p>
+                    <p>Hemly Pink Lady x2</p>
+                </td>
+                <td>95619</td>
+                <td class="status completed">
+                    <i class="fa fa-check"></i>Completed
+                </td>
+            </tr>
+            <tr>
+                <td>00842</td>
+                <td>Francis McKinney</td>
+                <td>
+                    <p>Japanese Curry & Vegetables x2</p>
+                    <p>Peach& Prociutto x2</p>
+                </td>
+                <td>95811</td>
+                <td class="status completed">
+                    <i class="fa fa-check"></i>Completed
+                </td>
+            </tr>
+            <tr>
+                <td>00845</td>
+                <td>Ezekiel Sung</td>
+                <td>
+                    <p>Japanese Curry & Vegetables x4</p></td>
+                <td>95619</td>
+                <td class="status completed">
+                    <i class="fa fa-check"></i>Completed
+                </td>
+            </tr>
+            <tr>
+                <td>00843</td>
+                <td>Kris Helmets</td>
+                <td>
+                    <p>Hemly Fuji Apple x2</p>
+                    <p>Japanese Curry & Vegetable x2</p>
+                </td>
+                <td>95825</td>
+                <td class="status unfulfilled">
+                    <i class="fa fa-times"></i>Unfulfilled
+                </td>
+            </tr>
+            <tr>
+                <td>00844</td>
+                <td>Omamouwa Shinderou</td>
+                <td>
+                    <p>Hemly Fuji Apple x2</p>
+                    <p>Japanese Curry & Vegetable x2</p>
+                </td>
+                <td>95825</td>
+                <td class="status completed">
+                    <i class="fa fa-check"></i>Completed
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src ="main.js">
+    </script>
+
+</body>
+
 </html>
