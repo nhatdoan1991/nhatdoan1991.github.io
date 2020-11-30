@@ -84,11 +84,11 @@ function createTable(){
    var th = document.createElement('th');
    th.appendChild(text);
    tr.appendChild(th);
-   var text = document.createTextNode("Action");
+   var text = document.createTextNode("Address");
    var th = document.createElement('th');
    th.appendChild(text);
    tr.appendChild(th);
-   var text = document.createTextNode("Order Number");
+   var text = document.createTextNode("Action");
    var th = document.createElement('th');
    th.appendChild(text);
    tr.appendChild(th);
