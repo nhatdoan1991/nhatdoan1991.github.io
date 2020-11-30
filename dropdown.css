@@ -6,7 +6,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #5f5f5f;
+    background-color:transparent;
     min-width: 120px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(119, 119, 119, 0.2);

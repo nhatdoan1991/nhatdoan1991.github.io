@@ -3,25 +3,40 @@
     <head>
         <link rel="stylesheet" href="queue.css">
         <link rel="stylesheet" href="modal.css">
+        <link rel="stylesheet" href="nav.css">
+        <link rel="stylesheet" href="dropdown.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <title >Delta Hand Pie Internal-Queue </title>
     </head>
 <body>
     <header>
-
+        <nav>
+			<div class="container">
+			<div class="nav-brand"> 
+				<img src="logo.png" alt="">
+				<h2>Delta Hand Pies</h2>
+			</div>
+			<ul>
+				<li><a href="list.html">List</a></li>
+				<li><a href="queue.html">Queue</a></li>
+				<li><a href="#">History</a></li>
+				<li><a href="index.html">Logout</a></li>
+			</ul>
+			</div>
+		</nav>
     </header>
     <div class="container content">
-        <h2 class ="content-heading"></i>Order Queue</h2>
+        <h2 class ="content-heading"></i>ORDER QUEUE</h2>
         <div class = "content-label">
             <h2 class="queue-heading">
-                <i class="fa fa-object-group" aria-hidden="true"></i> In Queue</h2>
+                </i> In Queue</h2>
             <div class="newGroup">
                 <button id="modal-btn" type="button" class = "button button-add">
                     <i class="fa fa-plus"></i>
                     New Group
                 </button>
             </div>
-                
+            
             <div dra id="my-modal" class="modal">
                 <div class="modal-content">
                  <div class="modal-header">
@@ -35,37 +50,50 @@
                           <p>
                             <label>Group Name:</label>
                             <input type = "text"
-                                   id = "groupName"
-                                   value = "95670" 
-                                   placeholder="Enter Group Name"/>
+                                   id = "newGroupName" 
+                                   placeholder="Enter Group Name"
+                                   onkeyup="getName()">
                         </fieldset>
                       </form>
                 </div>
                 <div class="modal-footer">
-                <form action="createGroup.html">
-                    <input class="button button-modal" type="submit" value="OK" />
-                    <form action="index.html">
-                        <input class="button button-modal" type="submit" value="Cancel" />
-                    </form>
-                </form>
+                    <button id="create-group" type="button" class = "button button-hold" onclick="addGroup()">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        OK
+                </button>
+                <button id ="close" type="button" class = "button button-hold">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                        Cancel
+                </button>
                 
                  </div>
                 </div>
             </div>
             <button id="dragble-button" type="button" class = "button button-hold">
                 <i id="unlockIcon" class="fa fa-unlock-alt" aria-hidden="true"></i>
-                Draggable
+                Drag Mode
             </button>
             <div class="search-box">
-                <input id="myInput" type = "text" placeholder="Search..." onkeyup="filterTable()">
+                <input id="mySearchInput" type = "text" placeholder="Search..." onkeyup="filterTable()">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </div>
-            <div class="dropdown">  <button type="button" class = "button button-normal">
-                <i class="fa fa-list-ul" aria-hidden="true"></i>
-                Group By
-            </button></div>
+            <div class="dropdown"> 
+                <button type="button" class = "button button-drop" onclick="dropDown()">
+               <i class="fa fa-list-ul" aria-hidden="true"></i>
+               Group By
+                </button>
+               <div id="myDropdown" class="dropdown-content">
+                <button type="button" class = "button button-dropDown" onclick="SortByDate()">
+                        Date
+                </button>
+                <button type="button" class = "button button-dropDown"onclick="SortByAddress()">
+                        Address
+                </button>
+               </div> 
+           </div>
            
         </div>
+     
         <div class= "queue-catagories">
             <h3 class = "queue-group-heading">
                 <i class="fa fa-table" aria-hidden="true"></i> All Order</h3>
@@ -77,7 +105,7 @@
                     <th>Address</th>
                     <th>Action</th>
                 </tr>
-                <tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()" ondrop="drop()">
                     <td>00841</td>
                     <td>Duane Wilson</td>
                     <td>
@@ -91,7 +119,7 @@
                         </button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()" ondrop="drop()">
                     <td>00842</td>
                     <td>Francis McKinney</td>
                     <td>
@@ -105,7 +133,7 @@
                         </button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"ondrop="drop()">
                     <td>00845</td>
                     <td>Ezekiel Sung</td>
                     <td>
@@ -117,7 +145,7 @@
                         </button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"ondrop="drop()">
                     <td>00843</td>
                     <td>Kris Helmets</td>
                     <td>
@@ -131,7 +159,7 @@
                         </button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"ondrop="drop()">
                     <td>00844</td>
                     <td>Omamouwa Shinderou</td>
                     <td>
@@ -148,86 +176,199 @@
             </table>
         </div>
          
-        <button type="button" class = "button button-normal">
+        <button id="modal-btn1"  type="button" class = "button button-normal">
             <i class="fa fa-american-sign-language-interpreting" aria-hidden="true"></i>
             Review Order
         </button>
+        <div dra id="my-modal1" class="modal">
+            <div class="modal-content">
+             <div class="modal-header">
+            <span class="close1">&times;</span>
+             <h2>Review Order</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <fieldset>
+                      <legend>All Group Order</legend>
+                      <h3 class = "queue-group-heading">
+                        <i class="fa fa-table" aria-hidden="true"></i> 95670</h3>
+                        <table class = "table-content">
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Name</th>
+                                <th>Item</th>
+                                <th>Address</th>
+    
+                            </tr>
+                            <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                                <td>00841</td>
+                                <td>Duane Wilson</td>
+                                <td>
+                                    <p>Fairytale x2</p>
+                                    <p>Hemly Pink Lady x2</p>
+                                </td>
+                                <td>95670</td>
+                             
+                            </tr>
+                            
+                            <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"> 
+                                <td>00845</td>
+                                <td>Ezekiel Sung</td>
+                                <td>
+                                    <p>Japanese Curry & Vegetables x4</p></td>
+                                <td>95670</td>
+                              
+                            </tr>
+                          
+                        </table>
+                    <h3 class = "queue-group-heading">
+                        <i class="fa fa-table" aria-hidden="true"></i> 95811</h3>
+                    <table class = "table-content">
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Name</th>
+                            <th>Item</th>
+                            <th>Address</th>
+                           
+                        </tr>
+                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                            <td>00842</td>
+                            <td>Francis McKinney</td>
+                            <td>
+                                <p>Japanese Curry & Vegetables x2</p>
+                                <p>Peach& Prociutto x2</p>
+                            </td>
+                            <td>95811</td>
+                          
+                        </tr>
+                      
+                          
+                    </table>
+                    <h3 class = "queue-group-heading">
+                        <i class="fa fa-table" aria-hidden="true"></i> 95825</h3>
+                    <table class = "table-content">
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Name</th>
+                            <th>Item</th>
+                            <th>Address</th>
+                            
+                        </tr>
+                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                            <td>00843</td>
+                            <td>Kris Helmets</td>
+                            <td>
+                                <p>Hemly Fuji Apple x2</p>
+                                <p>Japanese Curry & Vegetable x2</p>
+                            </td>
+                            <td>95825</td>
+                            
+                        </tr>
+                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
+                            <td>00844</td>
+                            <td>Omamouwa Shinderou</td>
+                            <td>
+                                <p>Hemly Fuji Apple x2</p>
+                                <p>Japanese Curry & Vegetable x2</p>
+                            </td>
+                            <td>95825</td>
+                           
+                        </tr>
+                    </table> 
+                    </fieldset>
+                  </form>
+            </div>
+            <div class="modal-footer">
+            <button id="create-group" type="button" class = "button button-hold" onclick="pushOrder()">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Push Order
+            </button>
+            <button id ="close1" type="button" class = "button button-hold">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                    Cancel
+            </button>
+            
+             </div>
+            </div>
+        </div>             
                     
-      
-        <div class="queue-catagories">
-            <h2 class="queue-heading">
-                <i class="fa fa-object-group" aria-hidden="true"></i> In Delivery</h2>
+            <div class="queue-catagories">
+                <h2 class="queue-heading">
+                    </i> In Delivery</h2>
+            
+            <h3 class = "queue-group-heading">
+                <i class="fa fa-table" aria-hidden="true"></i> Fri 11/20 </h3>
+            <table class = "table-content">
+                <tr>
+                    <th>Order Number</th>
+                    <th>Name</th>
+                    <th>Item</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>00841</td>
+                    <td>Duane Wilson</td>
+                    <td>
+                        <p>Fairytale x2</p>
+                        <p>Hemly Pink Lady x2</p>
+                    </td>
+                    <td>95619</td>
+                    <td class="status completed">
+                        <i class="fa fa-check"></i>Completed
+                    </td>
+                </tr>
+                <tr>
+                    <td>00842</td>
+                    <td>Francis McKinney</td>
+                    <td>
+                        <p>Japanese Curry & Vegetables x2</p>
+                        <p>Peach& Prociutto x2</p>
+                    </td>
+                    <td>95811</td>
+                    <td class="status completed">
+                        <i class="fa fa-check"></i>Completed
+                    </td>
+                </tr>
+                <tr>
+                    <td>00845</td>
+                    <td>Ezekiel Sung</td>
+                    <td>
+                        <p>Japanese Curry & Vegetables x4</p></td>
+                    <td>95619</td>
+                    <td class="status completed">
+                        <i class="fa fa-check"></i>Completed
+                    </td>
+                </tr>
+                <tr>
+                    <td>00843</td>
+                    <td>Kris Helmets</td>
+                    <td>
+                        <p>Hemly Fuji Apple x2</p>
+                        <p>Japanese Curry & Vegetable x2</p>
+                    </td>
+                    <td>95825</td>
+                    <td class="status unfulfilled">
+                        <i class="fa fa-times"></i>Unfulfilled
+                    </td>
+                </tr>
+                <tr>
+                    <td>00844</td>
+                    <td>Omamouwa Shinderou</td>
+                    <td>
+                        <p>Hemly Fuji Apple x2</p>
+                        <p>Japanese Curry & Vegetable x2</p>
+                    </td>
+                    <td>95825</td>
+                    <td class="status completed">
+                        <i class="fa fa-check"></i>Completed
+                    </td>
+                </tr>
+            </table>
         </div>
-        <h3 class = "queue-group-heading">
-            <i class="fa fa-table" aria-hidden="true"></i> Fri 11/20 </h3>
-        <table class = "table-content">
-            <tr>
-                <th>Order Number</th>
-                <th>Name</th>
-                <th>Item</th>
-                <th>Address</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>00841</td>
-                <td>Duane Wilson</td>
-                <td>
-                    <p>Fairytale x2</p>
-                    <p>Hemly Pink Lady x2</p>
-                </td>
-                <td>95619</td>
-                <td class="status completed">
-                    <i class="fa fa-check"></i>Completed
-                </td>
-            </tr>
-            <tr>
-                <td>00842</td>
-                <td>Francis McKinney</td>
-                <td>
-                    <p>Japanese Curry & Vegetables x2</p>
-                    <p>Peach& Prociutto x2</p>
-                </td>
-                <td>95811</td>
-                <td class="status completed">
-                    <i class="fa fa-check"></i>Completed
-                </td>
-            </tr>
-            <tr>
-                <td>00845</td>
-                <td>Ezekiel Sung</td>
-                <td>
-                    <p>Japanese Curry & Vegetables x4</p></td>
-                <td>95619</td>
-                <td class="status completed">
-                    <i class="fa fa-check"></i>Completed
-                </td>
-            </tr>
-            <tr>
-                <td>00843</td>
-                <td>Kris Helmets</td>
-                <td>
-                    <p>Hemly Fuji Apple x2</p>
-                    <p>Japanese Curry & Vegetable x2</p>
-                </td>
-                <td>95825</td>
-                <td class="status unfulfilled">
-                    <i class="fa fa-times"></i>Unfulfilled
-                </td>
-            </tr>
-            <tr>
-                <td>00844</td>
-                <td>Omamouwa Shinderou</td>
-                <td>
-                    <p>Hemly Fuji Apple x2</p>
-                    <p>Japanese Curry & Vegetable x2</p>
-                </td>
-                <td>95825</td>
-                <td class="status completed">
-                    <i class="fa fa-check"></i>Completed
-                </td>
-            </tr>
-        </table>
     </div>
+ 
+        
     <script src ="main.js">
     </script>
 </body>
