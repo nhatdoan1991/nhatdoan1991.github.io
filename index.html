@@ -1,375 +1,467 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="queue.css">
-        <link rel="stylesheet" href="modal.css">
-        <link rel="stylesheet" href="nav.css">
-        <link rel="stylesheet" href="dropdown.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <title >Delta Hand Pie Internal-Queue </title>
-    </head>
-<body>
-    <header>
-        <nav>
-			<div class="container">
-			<div class="nav-brand"> 
-				<img src="logo.png" alt="">
-				<h2>Delta Hand Pies</h2>
-			</div>
-			<ul>
-				<li><a href="list.html">List</a></li>
-				<li><a href="queue.html">Queue</a></li>
-				<li><a href="#">History</a></li>
-				<li><a href="index.html">Logout</a></li>
-			</ul>
-			</div>
-		</nav>
-    </header>
-    <div class="container content">
-        <h2 class ="content-heading"></i>ORDER QUEUE</h2>
-        <div class = "content-label">
-            <h2 class="queue-heading">
-                </i> In Queue</h2>
-            <div class="newGroup">
-                <button id="modal-btn" type="button" class = "button button-add">
-                    <i class="fa fa-plus"></i>
-                    New Group
-                </button>
-            </div>
-            
-            <div dra id="my-modal" class="modal">
-                <div class="modal-content">
-                 <div class="modal-header">
-                <span class="close">&times;</span>
-                 <h2>Create New Group</h2>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <fieldset>
-                          <legend>New Group</legend>
-                          <p>
-                            <label>Group Name:</label>
-                            <input type = "text"
-                                   id = "newGroupName" 
-                                   placeholder="Enter Group Name"
-                                   onkeyup="getName()">
-                        </fieldset>
-                      </form>
-                </div>
-                <div class="modal-footer">
-                    <button id="create-group" type="button" class = "button button-hold" onclick="addGroup()">
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                        OK
-                </button>
-                <button id ="close" type="button" class = "button button-hold">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                        Cancel
-                </button>
-                
-                 </div>
-                </div>
-            </div>
-            <button id="dragble-button" type="button" class = "button button-hold">
-                <i id="unlockIcon" class="fa fa-unlock-alt" aria-hidden="true"></i>
-                Drag Mode
-            </button>
-            <div class="search-box">
-                <input id="mySearchInput" type = "text" placeholder="Search..." onkeyup="filterTable()">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-            <div class="dropdown"> 
-                <button type="button" class = "button button-drop" onclick="dropDown()">
-               <i class="fa fa-list-ul" aria-hidden="true"></i>
-               Group By
-                </button>
-               <div id="myDropdown" class="dropdown-content">
-                <button type="button" class = "button button-dropDown" onclick="SortByDate()">
-                        Date
-                </button>
-                <button type="button" class = "button button-dropDown"onclick="SortByAddress()">
-                        Address
-                </button>
-               </div> 
-           </div>
-           
-        </div>
-     
-        <div class= "queue-catagories">
-            <h3 class = "queue-group-heading">
-                All Order</h3>
-            <table id="allOrderTable" class = "table-content">
-                <tr>
-                    <th>Order Number</th>
-                    <th>Name</th>
-                    <th>Item</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                </tr>
-                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()" ondrop="drop()">
-                    <td>00841</td>
-                    <td>Duane Wilson</td>
-                    <td>
-                        <p>Fairytale x2</p>
-                        <p>Hemly Pink Lady x2</p>
-                    </td>
-                    <td>95670</td>
-                    <td>
-                        <button class="button button-pop" onclick="pop(this)">
-                            <i class="fa fa-share" aria-hidden="true"></i></i>Pop
-                        </button>
-                    </td>
-                </tr>
-                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()" ondrop="drop()">
-                    <td>00842</td>
-                    <td>Francis McKinney</td>
-                    <td>
-                        <p>Japanese Curry & Vegetables x2</p>
-                        <p>Peach& Prociutto x2</p>
-                    </td>
-                    <td>95811</td>
-                    <td>
-                        <button class="button button-pop"onclick="pop(this)">
-                            <i class="fa fa-share" aria-hidden="true"></i></i>Pop
-                        </button>
-                    </td>
-                </tr>
-                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"ondrop="drop()">
-                    <td>00845</td>
-                    <td>Ezekiel Sung</td>
-                    <td>
-                        <p>Japanese Curry & Vegetables x4</p></td>
-                    <td>95670</td>
-                    <td>
-                        <button class="button button-pop"onclick="pop(this)">
-                            <i class="fa fa-share" aria-hidden="true"></i></i>Pop
-                        </button>
-                    </td>
-                </tr>
-                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"ondrop="drop()">
-                    <td>00843</td>
-                    <td>Kris Helmets</td>
-                    <td>
-                        <p>Hemly Fuji Apple x2</p>
-                        <p>Japanese Curry & Vegetable x2</p>
-                    </td>
-                    <td>95825</td>
-                    <td>
-                        <button class="button button-pop"onclick="pop(this)">
-                            <i class="fa fa-share" aria-hidden="true"></i></i>Pop
-                        </button>
-                    </td>
-                </tr>
-                <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"ondrop="drop()">
-                    <td>00844</td>
-                    <td>Omamouwa Shinderou</td>
-                    <td>
-                        <p>Hemly Fuji Apple x2</p>
-                        <p>Japanese Curry & Vegetable x2</p>
-                    </td>
-                    <td>95825</td>
-                    <td>
-                        <button class="button button-pop"onclick="pop(this)">
-                            <i class="fa fa-share" aria-hidden="true"></i></i>Pop
-                        </button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-         
-        <button id="modal-btn1"  type="button" class = "button button-normal">
-            Review Order
-        </button>
-        <div dra id="my-modal1" class="modal">
-            <div class="modal-content">
-             <div class="modal-header">
-            <span class="close1">&times;</span>
-             <h2>Review Order</h2>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <fieldset>
-                      <legend>All Group Order</legend>
-                      <h3 class = "queue-group-heading">
-                        95670</h3>
-                        <table class = "table-content">
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Name</th>
-                                <th>Item</th>
-                                <th>Address</th>
-    
-                            </tr>
-                            <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
-                                <td>00841</td>
-                                <td>Duane Wilson</td>
-                                <td>
-                                    <p>Fairytale x2</p>
-                                    <p>Hemly Pink Lady x2</p>
-                                </td>
-                                <td>95670</td>
-                             
-                            </tr>
-                            
-                            <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()"> 
-                                <td>00845</td>
-                                <td>Ezekiel Sung</td>
-                                <td>
-                                    <p>Japanese Curry & Vegetables x4</p></td>
-                                <td>95670</td>
-                              
-                            </tr>
-                          
-                        </table>
-                    <h3 class = "queue-group-heading">
-                        <i class="fa fa-table" aria-hidden="true"></i> 95811</h3>
-                    <table class = "table-content">
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Name</th>
-                            <th>Item</th>
-                            <th>Address</th>
-                           
-                        </tr>
-                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
-                            <td>00842</td>
-                            <td>Francis McKinney</td>
-                            <td>
-                                <p>Japanese Curry & Vegetables x2</p>
-                                <p>Peach& Prociutto x2</p>
-                            </td>
-                            <td>95811</td>
-                          
-                        </tr>
-                      
-                          
-                    </table>
-                    <h3 class = "queue-group-heading">
-                        <i class="fa fa-table" aria-hidden="true"></i> 95825</h3>
-                    <table class = "table-content">
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Name</th>
-                            <th>Item</th>
-                            <th>Address</th>
-                            
-                        </tr>
-                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
-                            <td>00843</td>
-                            <td>Kris Helmets</td>
-                            <td>
-                                <p>Hemly Fuji Apple x2</p>
-                                <p>Japanese Curry & Vegetable x2</p>
-                            </td>
-                            <td>95825</td>
-                            
-                        </tr>
-                        <tr class="draggable" draggable="false" ondragstart="start()" ondragover="dragover()">
-                            <td>00844</td>
-                            <td>Omamouwa Shinderou</td>
-                            <td>
-                                <p>Hemly Fuji Apple x2</p>
-                                <p>Japanese Curry & Vegetable x2</p>
-                            </td>
-                            <td>95825</td>
-                           
-                        </tr>
-                    </table> 
-                    </fieldset>
-                  </form>
-            </div>
-            <div class="modal-footer">
-            <button id="create-group" type="button" class = "button button-hold" onclick="pushOrder()">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                    Push Order
-            </button>
-            <button id ="close1" type="button" class = "button button-hold">
-                <i class="fa fa-times" aria-hidden="true"></i>
-                    Cancel
-            </button>
-            
-             </div>
-            </div>
-        </div>             
-                    
-            <div class="queue-catagories">
-                <h2 class="queue-heading">
-                    </i> In Delivery</h2>
-            
-            <h3 class = "queue-group-heading">
-                Fri 11/20 </h3>
-            <table class = "table-content">
-                <tr>
-                    <th>Order Number</th>
-                    <th>Name</th>
-                    <th>Item</th>
-                    <th>Address</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>00841</td>
-                    <td>Duane Wilson</td>
-                    <td>
-                        <p>Fairytale x2</p>
-                        <p>Hemly Pink Lady x2</p>
-                    </td>
-                    <td>95619</td>
-                    <td class="status completed">
-                        <i class="fa fa-check"></i>Completed
-                    </td>
-                </tr>
-                <tr>
-                    <td>00842</td>
-                    <td>Francis McKinney</td>
-                    <td>
-                        <p>Japanese Curry & Vegetables x2</p>
-                        <p>Peach& Prociutto x2</p>
-                    </td>
-                    <td>95811</td>
-                    <td class="status completed">
-                        <i class="fa fa-check"></i>Completed
-                    </td>
-                </tr>
-                <tr>
-                    <td>00845</td>
-                    <td>Ezekiel Sung</td>
-                    <td>
-                        <p>Japanese Curry & Vegetables x4</p></td>
-                    <td>95619</td>
-                    <td class="status completed">
-                        <i class="fa fa-check"></i>Completed
-                    </td>
-                </tr>
-                <tr>
-                    <td>00843</td>
-                    <td>Kris Helmets</td>
-                    <td>
-                        <p>Hemly Fuji Apple x2</p>
-                        <p>Japanese Curry & Vegetable x2</p>
-                    </td>
-                    <td>95825</td>
-                    <td class="status unfulfilled">
-                        <i class="fa fa-times"></i>Unfulfilled
-                    </td>
-                </tr>
-                <tr>
-                    <td>00844</td>
-                    <td>Omamouwa Shinderou</td>
-                    <td>
-                        <p>Hemly Fuji Apple x2</p>
-                        <p>Japanese Curry & Vegetable x2</p>
-                    </td>
-                    <td>95825</td>
-                    <td class="status completed">
-                        <i class="fa fa-check"></i>Completed
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
- 
-        
-    <script src ="main.js">
-    </script>
-</body>
+  <head>
+    <title>Nhat Doan Resume</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
 
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 22px;
+        font-size: 16px;
+
+        color: #222;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Oswald", Impact, Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        margin: 0 0 15px 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 300%;
+      }
+      h2 {
+        font-size: 210%;
+      }
+      h3 {
+        font-size: 130%;
+      }
+
+      p {
+        margin: 0 0 10px 0;
+      }
+
+      ul {
+        margin: 0;
+        list-style-type: square;
+      }
+      a {
+        color: #222;
+      }
+      /* ________________________________________________________ */
+      .rtl {
+        direction: rtl;
+      }
+      .clear {
+        clear: both;
+      }
+
+      #main {
+        background: #fff;
+        width: 900px;
+        padding: 35px;
+        margin: 0 auto 15px auto;
+        overflow: hidden;
+
+        box-shadow: none;
+      }
+
+      #title {
+        line-height: 42px;
+        border-bottom: 3px solid #000;
+        padding-bottom: 30px;
+        margin: 0px 0 30px 0;
+      }
+
+      #credit {
+        margin-bottom: 20px;
+        font-size: 11px;
+        color: #999;
+        text-align: center;
+      }
+      #credit a {
+        color: #999;
+      }
+
+      p label {
+        font-family: "Oswald", Helvetica, Arial, serif;
+
+        font-size: 110%;
+        margin-right: 10px;
+      }
+      p label span.colon {
+        display: inline;
+      }
+
+      .section {
+        margin-bottom: 10px;
+      }
+      .section .set {
+      }
+      .item {
+        margin: 0 0 20px 0;
+      }
+
+      /*  _____________________________ */
+      .section .title {
+        text-transform: uppercase;
+        font-size: 150%;
+
+        padding: 10px 10px;
+        margin: 0 auto 15px auto;
+
+        display: inline-block;
+        background: #000;
+        color: #fff;
+      }
+      .section .set h3 {
+        margin: 0;
+      }
+
+      .basic-info {
+        border-top: 0;
+      }
+      .section.basic-info .title {
+        float: left;
+        border: 0;
+      }
+      .basic-info .set {
+        float: right;
+        width: 70%;
+      }
+      .basic-info .address {
+        width: 40%;
+        float: left;
+      }
+      .basic-info .r {
+        float: right;
+        width: 60%;
+        text-align: right;
+      }
+      .basic-info label {
+        font-family: "Oswald", Helvetica, Arial, serif;
+      }
+      .basic-info label,
+      .basic-info span {
+        display: inline !important;
+      }
+      .basic-info p {
+        margin: 0;
+      }
+
+      .section span.value {
+        display: block;
+      }
+      .section h3 span.l,
+      .section span.r {
+        width: 49%;
+        float: left;
+      }
+      .section span.r {
+        float: right;
+        text-align: right;
+      }
+      .section-education .school,
+      .section-work .job_title {
+        font-size: 100%;
+        display: block;
+        margin: 5px 0 5px 0;
+      }
+
+      #photo {
+        width: 160px;
+        height: 200px;
+        overflow: hidden;
+        float: left;
+        margin-top: 4px;
+        border-radius: 4px;
+      }
+      #photo img {
+        width: 100%;
+        height: auto;
+      }
+      .header.photo {
+        margin-left: 190px;
+      }
+      .header.photo #title {
+        text-align: left;
+      }
+      .header.photo .basic-info {
+        float: none;
+        padding: 0;
+      }
+
+      @media screen and (max-width: 950px) {
+        body {
+          background: #fff;
+        }
+        #main {
+          box-shadow: none;
+          padding: 0;
+          padding: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body class="lang-">
+    <div id="main">
+      <h1 id="title">Nhat Doan, Full Stack Developer</h1>
+      <div class="basic-info section">
+        <h2 class="title">Contact</h2>
+        <div class="set">
+          <div class="r">
+            <p class="email">
+              <label>E-mail<span class="colon">:</span></label>
+              <span class="value">nhatdoan91@gmail.com</span>
+            </p>
+            <p class="phone">
+              <label>Phone<span class="colon">:</span></label>
+              <span class="value">(916) 298-3484</span>
+            </p>
+            <p class="website">
+              <label>GitHub<span class="colon">:</span></label>
+              <span class="value">www.github.com/nhatdoan1991</span>
+            </p>
+            <p class="website">
+              <label>LinkedIn<span class="colon">:</span></label>
+              <span class="value"> www.linkedin.com/in/nhatdoan91</span>
+            </p>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="section section-education">
+        <h2 class="title">Education</h2>
+        <div class="set">
+          <div class="item">
+            <h3>
+              <span class="course l">B.S. Computer Science</span>
+              <span class="date r">Jan 2019 &mdash; May 2021</span>
+            </h3>
+            <div class="clear"></div>
+            <span class="school">California State University, Sacramento</span>
+            <div class="info">
+              <p><b>GPA: </b><i>3.7</i></p>
+              <p>
+                <b>Relevant Coursework: </b
+                ><i
+                  >Discrete Structures for Computer Science, Data Structures and
+                  Algorithm Analysis, Computing Theory, Computer &amp; Computer
+                  Game Architecture and Organization, Operating System
+                  Principles, Systems Programming in UNIX, Software Engineering,
+                  Object-oriented Computer Graphics Programming, Advanced
+                  Database Management Systems, Computer Network Fundamentals,
+                  Parallel Programming with GPUs</i
+                >
+              </p>
+            </div>
+            <span class="clear"> </span>
+          </div>
+
+          <div class="item">
+            <h3>
+              <span class="course l">A.A Mathematics</span>
+              <span class="date r">Jan 2016 &mdash; Dec 2018</span>
+            </h3>
+            <div class="clear"></div>
+            <span class="school">Sacramento City College</span>
+            <div class="info">
+              <p><b>GPA: </b><i>3.7</i></p>
+            </div>
+            <span class="clear"> </span>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <div class="section section-work">
+        <h2 class="title">Work experience</h2>
+        <div class="set">
+          <div class="item">
+            <h3>
+              <span class="company l">LLC SKYWIDE LOGIC</span>
+              <span class="date r">Jan 2021 &mdash; May 2021</span>
+            </h3>
+            <div class="clear"></div>
+            <span class="job_title">Full Stack Development Intern</span>
+            <div class="info">
+              <ul>
+                <li>
+                  Collaborated with 2 other interns to develop a mobile
+                  application called “4 Leaf” using React Native and Firebase,
+                  allowing thousands of Gen Z to socialize, study, seek
+                  mentorship, and attend academic events.
+                </li>
+                <li>
+                  Applied Styled Components to design an attractive and
+                  responsive UI to increase interaction and engagement.
+                </li>
+                <li>
+                  Handled back-end with Firebase to fetch data from database and
+                  implemented secure Google login authentication.
+                </li>
+                <li>
+                  Utilized React Navigation to implement the routing between
+                  screens and pages.
+                </li>
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <div class="item">
+            <h3>
+              <span class="company l">LLC Delta Hand Pies</span>
+              <span class="date r">Aug 2020 &mdash; May 2021</span>
+            </h3>
+            <div class="clear"></div>
+            <span class="job_title">Full Stack Developer</span>
+            <div class="info">
+              <ul>
+                <li>
+                  Collaborated with 5 other creative and technical students to
+                  develop an internal website, using proper Agile methodologies,
+                  for the company to efficiently manage the hot pie order and
+                  delivery process.
+                </li>
+                <li>
+                  Built an internal website and a hybrid app from scratch using
+                  XAMPP stack with Laravel framework. Utilized PHP and MySQL in
+                  the backend to connect, retrieve from and update the DB, and
+                  created a responsive and clear UI using Blade, HTML5, CSS, and
+                  JavaScript.
+                </li>
+                <li>
+                  Implemented RESTful API to allow future integration for mobile
+                  applications.
+                </li>
+                <li>
+                  Utilized Google Maps API to generate the appropriate route and
+                  direction for each group delivery, increasing delivery
+                  efficiency by allowing users to immediately see generated
+                  routes in Google Maps.
+                </li>
+                <li>
+                  Reduced 80%+ of manual work by removing the need to process
+                  manual orders by synchronizing all orders from the e-Commerce
+                  website to the internal order management website, reducing
+                  process from 1 day to 1 hour.
+                </li>
+                <li>
+                  Implemented ability for company to automatically group orders,
+                  efficiently assign drivers, visualize history of deliveries,
+                  search for specific deliveries, and communicate with drivers
+                  through internal chat system.
+                </li>
+                <li>
+                  Allowed drivers to log in to app to immediately see their
+                  deliveries instead of viewing paper sheets, reducing 3-4 hour
+                  deliveries to 30 minutes to an hour.
+                </li>
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <div class="item">
+            <h3>
+              <span class="company l">Sacramento State – ECS</span>
+              <span class="date r">Jan 2020 &mdash; May 2021</span>
+            </h3>
+            <div class="clear"></div>
+            <span class="job_title">Computer Science Tutor</span>
+            <div class="info">
+              <ul>
+                <li>
+                  Tutor 6-7 Sac State computer science students per day in
+                  learning CS courses and implementing projects and assignments
+                  developed in Java, JavaScript, and HTML/CSS. Guide students to
+                  understand concepts, help them debug code, provide assistance
+                  in building portfolio websites, and provide advice for
+                  real-life CS projects.
+                </li>
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="section section-1621812459436">
+        <h2 class="title">Projects</h2>
+        <div class="set">
+          <div class="item">
+            <span class="info"
+              ><p>
+                <b>The Hunting Game</b><span><b>, </b></span
+                ><b>Spring 2020</b>
+              </p>
+              <ul>
+                <li>
+                  Utilized Java Game Engine to independently develop an
+                  entertaining 3D multiplayer game about monsters hunting from
+                  scratch. Used Blender to create models and animations from
+                  scratch and import them to the game.
+                </li>
+                <li>
+                  Implemented end-to-end features skybox, physics, terrain,
+                  animations, and logic for the game.
+                </li>
+                <li>
+                  <span
+                    ><span
+                      >https://github.com/nhatdoan1991/The-Hunting-Game---CSC165-</span
+                    ></span
+                  >
+                </li>
+              </ul></span
+            >
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="section section-1621812549469">
+        <h2 class="title">Skills</h2>
+        <div class="set">
+          <div class="item">
+            <span class="info"
+              ><p>
+                <b>Proficient in:</b> C, C++, Java, JavaScript, HTML, CSS,
+                MySQL, PHP, React Native, Scrum, Git, VS Code, Laravel, RESTful API
+              </p>
+              <p><b>Familiar with:</b> GraphQL, React, Typescript, Node.js, AWS, .NET Core, MVC, Razor Pages, WPF, and Blazor </p></span
+            >
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="section section-1621812549469">
+        <h2 class="title">Volunteer</h2>
+        <div class="set">
+          <div class="item">
+            <h3>
+              <span class="company l">KTV Sacramento Chapter, VEYM</span>
+              <span class="date r">July 2017 &mdash; present</span>
+            </h3>
+            <div class="clear"></div>
+            <span class="job_title">Vice-President of Academic & Youth Leader</span>
+            <div class="info">
+              <ul>
+                <li>
+                  Teaches youths to become better people in society and better Catholics. Planning a curriculum for 2 full school years ( Sep 2019 - May 2021)
+                   and helping fellow youth leaders to plan lessons according to the curriculum. Provide training for youth leaders to enhance their leadership skills. 
+                </li>
+              </ul>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </body>
 </html>
